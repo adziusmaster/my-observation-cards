@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Observation Cards</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8; /* Light background */
+            color: #334155; /* Darker text for readability */
+            line-height: 1.6;
+        }
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem; /* Space between cards */
+            justify-content: center;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 0.75rem; /* Rounded corners */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            padding: 1.5rem;
+            width: 100%;
+            max-width: 380px; /* Max width for individual cards */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 200px; /* Ensure cards have a consistent height */
+            transition: transform 0.2s ease-in-out;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e293b; /* Darker title color */
+            margin-bottom: 0.75rem;
+            border-bottom: 2px solid #cbd5e1; /* Subtle separator */
+            padding-bottom: 0.5rem;
+        }
+        .card-section-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #475569;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        .card-text {
+            font-size: 0.95rem;
+            color: #475569;
+        }
+        .card-impact {
+            font-size: 0.9rem;
+            font-style: italic;
+            color: #64748b;
+            margin-top: 1rem;
+            padding-top: 0.75rem;
+            border-top: 1px dashed #e2e8f0; /* Dashed separator for impact */
+        }
+        .llm-section {
+            background-color: #e0f2fe; /* Light blue background for LLM section */
+            border-radius: 0.75rem;
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 800px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        .loading-spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-left-color: #2563eb;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 0.5rem;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Print-specific styles */
+        @media print {
+            body {
+                background-color: #fff;
+                color: #000;
+                -webkit-print-color-adjust: exact !important; /* For background colors */
+                print-color-adjust: exact !important;
+            }
+            .card-container {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); /* Adjust for print layout */
+                gap: 1rem;
+                padding: 0.5rem;
+            }
+            .card {
+                box-shadow: none; /* No shadow in print */
+                border: 1px solid #ccc; /* Subtle border for cutting */
+                min-height: auto; /* Allow height to adjust */
+                break-inside: avoid; /* Avoid breaking cards across pages */
+                page-break-inside: avoid; /* For older browsers */
+            }
+            h1, h2 {
+                text-align: center;
+                margin-top: 1rem;
+                margin-bottom: 1.5rem;
+                color: #000;
+            }
+            .no-print {
+                display: none;
+            }
+            .llm-section {
+                display: none; /* Hide LLM section when printing */
+            }
+        }
+    </style>
+</head>
+<body class="p-4">
+    <div class="card-container">
+
+        <!-- Financial Discipline Cards -->
+
+        <div class="card">
+            <h3 class="card-title">Fuel Loan Cleared!</h3>
+            <div>
+                <p class="card-section-title">Observation:</p>
+                <p class="card-text">"I received the full €300 fuel loan repayment by July 25, 2025, unprompted. Thank you for your swift action and commitment!"</p>
+            </div>
+            <p class="card-impact">Impact: "This shows immediate responsibility and begins to rebuild my financial trust."</p>
+        </div>
+
+        <div class="card">
+            <h3 class="card-title">Bank Overdraft: ZERO!</h3>
+            <div>
+                <p class="card-section-title">Observation:</p>
+                <p class="card-text">"I saw your bank account overdraft is now at €0! This demonstrates incredible discipline and makes me feel much more secure about your financial management."</p>
+            </div>
+            <p class="card-impact">Impact: "This is a huge milestone for our financial stability and my peace of mind."</p>
+        </div>
+
+        <div class="card">
+            <h3 class="card-title">Consistent Repayment</h3>
+            <div>
+                <p class="card-section-title">Observation:</p>
+                <p class="card-text">"I observed your consistent €350 repayment to me this month, as promised. Your reliability in this area is clearly building my trust."</p>
+            </div>
+            <p class="card-impact">Impact: "This regular payment shows me you're committed to our agreement."</p>
+        </div>
+
+        <div class="card">
+            <h3 class="card-title">Budget Champion!</h3>
+            <div>
+                <p class="card-section-title">Observation:</p>
+                <p class="card-text">"I observed you consistently sticking to your budget this week, and you proactively shared your finances with me. I feel completely informed and respected."</p>
+            </div>
+            <p class="card-impact">Impact: "Your transparency makes me feel like we're truly a team in our finances."</p>
+        </div>
+
+        <div class="card">
+            <h3 class="card-title">No More Vapes!</h3>
+            <div>
+                <p class="card-section-title">Observation:</p>
+                <p class="card-text">"I observed that you've kept your commitment to €0 spending on vapes this week. This shows immense personal discipline and dedication."</p>
+            </div>
+            <p class="card-impact">Impact: "This cut shows me you're serious about our financial goals and your health."</p>
+        </div>
+
+        <div class="card">
+            <h3 class="card-title">BMW Plan On Track</h3>
+            <div>
+                <p class="card-section-title">Observation:</p>
+                <p class="card-text">"I saw you activated the BMW loan payments as planned. Your follow-through here is reassuring."</p>
+            </div>
+            <p class="card-impact">Impact: "This shows you are committed to tackling all your debts systematically."</p>
+        </div>
+
+        <div class="card">
+            <h3 class="card-title">Growing Security</h3>
+            <div>
+                <p class="card-section-title">Observation:</p>
+                <p class="card-text">"I observed your emergency fund growing this month. This brings me significant peace of mind about our future and your ability to handle unexpected expenses."</p>
+            </div>
+            <p class="card-impact">Impact: "This shows me you're building long-term financial security for yourself and for us."</p>
+        </div>
+
+        <!-- Behavioral Transformation Cards -->
+
+        <div class="card">
+            <h3 class="card-title">Truly Heard</h3>
+            <div>
+                <p class="card-section-title">Observation:</p>
+                <p class="card-text">"I felt truly heard and understood today because you gave me your undivided attention and paraphrased what I said. Thank you for being so present."</p>
+            </div>
+            <p class="card-impact">Impact: "This makes me feel valued and connected to you."</p>
+        </div>
+
+        <div class="card">
+            <h3 class="card-title">Empathetic Connection</h3>
+            <div>
+                <p class="card-section-title">Observation:</p>
+                <p class="card-text">"I felt understood when you acknowledged and validated my feelings about ............... . Your empathy makes me feel safe to share anything with you."</p>
+            </div>
+            <p class="card-impact">Impact: "Knowing my emotions are valid helps me trust you with my vulnerability."</p>
+        </div>
+
+        <div class="card">
+            <h3 class="card-title">Taking Responsibility</h3>
+            <div>
+                <p class="card-section-title">Observation:</p>
+                <p class="card-text">"I noticed you immediately taking full responsibility for ............... . This genuinely rebuilds my trust in your accountability."</p>
+            </div>
+            <p class="card-impact">Impact: "Your willingness to own your actions makes me feel respected and secure."</p>
+        </div>
+
+        <div class="card">
+            <h3 class="card-title">Calm & Respectful</h3>
+            <div>
+                <p class="card-section-title">Observation:</p>
+                <p class="card-text">"I observed you managing your stress calmly today, and our interaction remained respectful, even under pressure. Thank you for your emotional maturity."</p>
+            </div>
+            <p class="card-impact">Impact: "This consistency helps me feel safe and respected in our relationship."</p>
+        </div>
+
+        <div class="card">
+            <h3 class="card-title">Proactive Home Support</h3>
+            <div>
+                <p class="card-section-title">Observation:</p>
+                <p class="card-text">"I noticed you proactively ............... . This lightens my burden and makes me feel so supported and cared for."</p>
+            </div>
+            <p class="card-impact">Impact: "Your initiative in our shared space means the world to me."</p>
+        </div>
+
+        <div class="card">
+            <h3 class="card-title">Reliable Partner</h3>
+            <div>
+                <p class="card-section-title">Observation:</p>
+                <p class="card-text">"I observed you consistently following through on your commitments this week, without me needing to remind you. Your reliability truly means a lot to me."</p>
+            </div>
+            <p class="card-impact">Impact: "This consistency builds my trust that you will do what you say."</p>
+        </div>
+
+    </div>
+
+</body>
+</html>
