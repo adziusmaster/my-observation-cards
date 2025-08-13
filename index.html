@@ -3,252 +3,192 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Observation Cards</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>CV - Andrzej Lech</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f0f4f8; /* Light background */
-            color: #334155; /* Darker text for readability */
-            line-height: 1.6;
+            font-family: 'Lato', sans-serif;
         }
-        .card-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.5rem; /* Space between cards */
-            justify-content: center;
-            padding: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
+        .print-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #1a202c;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 9999px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: background-color 0.3s;
         }
-        .card {
-            background-color: #ffffff;
-            border-radius: 0.75rem; /* Rounded corners */
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            padding: 1.5rem;
-            width: 100%;
-            max-width: 380px; /* Max width for individual cards */
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            min-height: 200px; /* Ensure cards have a consistent height */
-            transition: transform 0.2s ease-in-out;
+        .print-button:hover {
+            background-color: #2d3748;
         }
-        .card:hover {
-            transform: translateY(-5px);
-        }
-        .card-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #1e293b; /* Darker title color */
-            margin-bottom: 0.75rem;
-            border-bottom: 2px solid #cbd5e1; /* Subtle separator */
-            padding-bottom: 0.5rem;
-        }
-        .card-section-title {
-            font-size: 1rem;
-            font-weight: 600;
-            color: #475569;
-            margin-top: 1rem;
-            margin-bottom: 0.5rem;
-        }
-        .card-text {
-            font-size: 0.95rem;
-            color: #475569;
-        }
-        .card-impact {
-            font-size: 0.9rem;
-            font-style: italic;
-            color: #64748b;
-            margin-top: 1rem;
-            padding-top: 0.75rem;
-            border-top: 1px dashed #e2e8f0; /* Dashed separator for impact */
-        }
-        .llm-section {
-            background-color: #e0f2fe; /* Light blue background for LLM section */
-            border-radius: 0.75rem;
-            padding: 2rem;
-            margin: 2rem auto;
-            max-width: 800px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-        .loading-spinner {
-            border: 4px solid rgba(0, 0, 0, 0.1);
-            border-left-color: #2563eb;
-            border-radius: 50%;
-            width: 24px;
-            height: 24px;
-            animation: spin 1s linear infinite;
-            display: inline-block;
-            vertical-align: middle;
-            margin-left: 0.5rem;
-        }
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        /* Print-specific styles */
         @media print {
-            body {
-                background-color: #fff;
-                color: #000;
-                -webkit-print-color-adjust: exact !important; /* For background colors */
-                print-color-adjust: exact !important;
-            }
-            .card-container {
-                display: grid;
-                grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); /* Adjust for print layout */
-                gap: 1rem;
-                padding: 0.5rem;
-            }
-            .card {
-                box-shadow: none; /* No shadow in print */
-                border: 1px solid #ccc; /* Subtle border for cutting */
-                min-height: auto; /* Allow height to adjust */
-                break-inside: avoid; /* Avoid breaking cards across pages */
-                page-break-inside: avoid; /* For older browsers */
-            }
-            h1, h2 {
-                text-align: center;
-                margin-top: 1rem;
-                margin-bottom: 1.5rem;
-                color: #000;
-            }
-            .no-print {
+            .print-button {
                 display: none;
             }
-            .llm-section {
-                display: none; /* Hide LLM section when printing */
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
             }
         }
     </style>
 </head>
-<body class="p-4">
-    <div class="card-container">
+<body class="bg-gray-100 text-gray-800">
 
-        <!-- Financial Discipline Cards -->
-
-        <div class="card">
-            <h3 class="card-title">Fuel Loan Cleared!</h3>
-            <div>
-                <p class="card-section-title">Observation:</p>
-                <p class="card-text">"I received the full €300 fuel loan repayment by July 25, 2025, unprompted. Thank you for your swift action and commitment!"</p>
+    <div class="max-w-4xl mx-auto p-8 bg-white shadow-lg my-8 print:my-0 print:shadow-none">
+        <!-- Header Section -->
+        <header class="text-center border-b-2 border-gray-200 pb-6 mb-8">
+            <h1 class="text-5xl font-bold text-gray-800 tracking-wider">Andrzej Lech</h1>
+            <p class="text-xl text-gray-600 mt-2">Lead Software Engineer</p>
+            <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 mt-4 text-gray-600">
+                <a href="tel:+31621879682" class="hover:text-blue-600 transition-colors">
+                    <i class="fas fa-phone mr-2"></i>+31 6 2187 9682
+                </a>
+                <a href="mailto:adzius.lech@gmail.com" class="hover:text-blue-600 transition-colors">
+                    <i class="fas fa-envelope mr-2"></i>adzius.lech@gmail.com
+                </a>
+                <a href="https://www.linkedin.com/in/andrzej-lech-848838197/" target="_blank" class="hover:text-blue-600 transition-colors">
+                    <i class="fab fa-linkedin mr-2"></i>LinkedIn
+                </a>
+                <a href="https://github.com/adziusmaster" target="_blank" class="hover:text-blue-600 transition-colors">
+                    <i class="fab fa-github mr-2"></i>GitHub
+                </a>
             </div>
-            <p class="card-impact">Impact: "This shows immediate responsibility and begins to rebuild my financial trust."</p>
+        </header>
+
+        <!-- Main Content -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <!-- Left Column -->
+            <aside class="md:col-span-1">
+                <section>
+                    <h2 class="text-2xl font-bold border-b-2 border-blue-500 pb-2 mb-4">Summary</h2>
+                    <p class="text-sm leading-relaxed">
+                        Lead Software Engineer with 6 years of experience specializing in architecting and building scalable .NET applications from concept to launch. Proven ability to own the entire product lifecycle, leading technical strategy and delivering robust, end-to-end solutions as a solo engineer.
+                    </p>
+                </section>
+
+                <section class="mt-8">
+                    <h2 class="text-2xl font-bold border-b-2 border-blue-500 pb-2 mb-4">Skills</h2>
+                    <div class="space-y-4">
+                        <div>
+                            <h3 class="font-bold text-md mb-2">Languages</h3>
+                            <p class="text-sm">C#, TypeScript, JavaScript, Python, HTML5</p>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-md mb-2">Frameworks & Libraries</h3>
+                            <p class="text-sm">.NET Core, ASP.NET, RESTful APIs, Entity Framework (LINQ), React, MaterialUI, ML.NET</p>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-md mb-2">Databases</h3>
+                            <p class="text-sm">SQL Server, PostgreSQL, Redis, Elasticsearch</p>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-md mb-2">Tools & Platforms</h3>
+                            <p class="text-sm">Azure, AWS, GCP (Vertex AI), Docker, Azure DevOps, Azure Document Intelligence, CI/CD, Git, Jira, Drupal</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="mt-8">
+                    <h2 class="text-2xl font-bold border-b-2 border-blue-500 pb-2 mb-4">Education</h2>
+                    <div class="text-sm">
+                        <p class="font-bold">Civil Engineering</p>
+                        <p>Tadeusz Kościuszko University of Technology</p>
+                        <p class="text-gray-500">Krakow, Poland | 2011 – 2015</p>
+                    </div>
+                </section>
+                
+                <section class="mt-8">
+                    <h2 class="text-2xl font-bold border-b-2 border-blue-500 pb-2 mb-4">Certifications</h2>
+                    <div class="text-sm space-y-2">
+                        <p><span class="font-bold">Microsoft Certified:</span> Power Platform Fundamentals</p>
+                        <p><span class="font-bold">Speexx English:</span> CEFR Level C1.2</p>
+                    </div>
+                </section>
+            </aside>
+
+            <!-- Right Column -->
+            <main class="md:col-span-2">
+                <section>
+                    <h2 class="text-2xl font-bold border-b-2 border-blue-500 pb-2 mb-4">Experience</h2>
+                    <div class="space-y-8">
+                        <!-- AutoGrowth Role -->
+                        <div>
+                            <div class="flex justify-between items-baseline">
+                                <h3 class="text-xl font-bold">Lead Software Engineer</h3>
+                                <p class="text-sm text-gray-500">Aug 2023 – Present</p>
+                            </div>
+                            <p class="font-semibold text-md">AutoGrowth | Utrecht, NL</p>
+                            <ul class="list-disc list-inside mt-2 text-sm space-y-2">
+                                <li>Served as the sole technical authority, leading the end-to-end development of 5 full-scale, custom enterprise applications from architecture to deployment.</li>
+                                <li>Architected and developed a reusable full-stack platform (.NET and React) that established company-wide coding standards and accelerated project delivery.</li>
+                                <li>Engineered a multi-tenant coaching portal with AI-powered document analysis and text generation features to help sick employees return to work.</li>
+                                <li>Managed all cloud infrastructure on Azure, including provisioning resources, setting up CI/CD pipelines, and securing tokens and secrets with Azure Key Vault.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Inframent Role -->
+                        <div>
+                            <div class="flex justify-between items-baseline">
+                                <h3 class="text-xl font-bold">Full Stack Developer</h3>
+                                <p class="text-sm text-gray-500">Jul 2023 – Aug 2023</p>
+                            </div>
+                            <p class="font-semibold text-md">Inframent | Leiden, NL</p>
+                            <ul class="list-disc list-inside mt-2 text-sm space-y-2">
+                                <li>Developed a scalable .NET backend for a new mobile application, integrating with AWS for database (RDS) and storage (S3) solutions.</li>
+                                <li>Worked within a containerized environment using Docker for consistent development and deployment.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Hoppinger Role -->
+                        <div>
+                            <div class="flex justify-between items-baseline">
+                                <h3 class="text-xl font-bold">Full Stack Developer & Trainee</h3>
+                                <p class="text-sm text-gray-500">Aug 2020 – Jul 2023</p>
+                            </div>
+                            <p class="font-semibold text-md">Hoppinger | Rotterdam, NL</p>
+                            <ul class="list-disc list-inside mt-2 text-sm space-y-2">
+                                <li>Contributed to the development of high-impact platforms for major Dutch organizations, including a support community for Reuma patients, a donation portal for the Hartstichting (Heart Foundation), and the national student housing platform, ROOM.</li>
+                                <li>Utilized a diverse tech stack including .NET, Elasticsearch, React, TypeScript, and Drupal as a headless CMS.</li>
+                            </ul>
+                        </div>
+
+                        <!-- FlexIT RENT Role -->
+                        <div>
+                            <div class="flex justify-between items-baseline">
+                                <h3 class="text-xl font-bold">Hardware & Software Setup Worker</h3>
+                                <p class="text-sm text-gray-500">Mar 2020 – Jul 2020</p>
+                            </div>
+                            <p class="font-semibold text-md">FlexIT RENT | Leiden, NL</p>
+                            <ul class="list-disc list-inside mt-2 text-sm space-y-2">
+                                <li>Configured and deployed hardware and software setups for enterprise clients, ensuring seamless integration and functionality.</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Transition Technologies Role -->
+                        <div>
+                            <div class="flex justify-between items-baseline">
+                                <h3 class="text-xl font-bold">PL/SQL Developer Intern</h3>
+                                <p class="text-sm text-gray-500">May 2018 – Sep 2019</p>
+                            </div>
+                            <p class="font-semibold text-md">Transition Technologies PSC | Poland</p>
+                            <ul class="list-disc list-inside mt-2 text-sm space-y-2">
+                                <li>Developed and maintained database procedures using PL/SQL, gaining foundational experience in enterprise-level data management.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </main>
         </div>
-
-        <div class="card">
-            <h3 class="card-title">Bank Overdraft: ZERO!</h3>
-            <div>
-                <p class="card-section-title">Observation:</p>
-                <p class="card-text">"I saw your bank account overdraft is now at €0! This demonstrates incredible discipline and makes me feel much more secure about your financial management."</p>
-            </div>
-            <p class="card-impact">Impact: "This is a huge milestone for our financial stability and my peace of mind."</p>
-        </div>
-
-        <div class="card">
-            <h3 class="card-title">Consistent Repayment</h3>
-            <div>
-                <p class="card-section-title">Observation:</p>
-                <p class="card-text">"I observed your consistent €350 repayment to me this month, as promised. Your reliability in this area is clearly building my trust."</p>
-            </div>
-            <p class="card-impact">Impact: "This regular payment shows me you're committed to our agreement."</p>
-        </div>
-
-        <div class="card">
-            <h3 class="card-title">Budget Champion!</h3>
-            <div>
-                <p class="card-section-title">Observation:</p>
-                <p class="card-text">"I observed you consistently sticking to your budget this week, and you proactively shared your finances with me. I feel completely informed and respected."</p>
-            </div>
-            <p class="card-impact">Impact: "Your transparency makes me feel like we're truly a team in our finances."</p>
-        </div>
-
-        <div class="card">
-            <h3 class="card-title">No More Vapes!</h3>
-            <div>
-                <p class="card-section-title">Observation:</p>
-                <p class="card-text">"I observed that you've kept your commitment to €0 spending on vapes this week. This shows immense personal discipline and dedication."</p>
-            </div>
-            <p class="card-impact">Impact: "This cut shows me you're serious about our financial goals and your health."</p>
-        </div>
-
-        <div class="card">
-            <h3 class="card-title">BMW Plan On Track</h3>
-            <div>
-                <p class="card-section-title">Observation:</p>
-                <p class="card-text">"I saw you activated the BMW loan payments as planned. Your follow-through here is reassuring."</p>
-            </div>
-            <p class="card-impact">Impact: "This shows you are committed to tackling all your debts systematically."</p>
-        </div>
-
-        <div class="card">
-            <h3 class="card-title">Growing Security</h3>
-            <div>
-                <p class="card-section-title">Observation:</p>
-                <p class="card-text">"I observed your emergency fund growing this month. This brings me significant peace of mind about our future and your ability to handle unexpected expenses."</p>
-            </div>
-            <p class="card-impact">Impact: "This shows me you're building long-term financial security for yourself and for us."</p>
-        </div>
-
-        <!-- Behavioral Transformation Cards -->
-
-        <div class="card">
-            <h3 class="card-title">Truly Heard</h3>
-            <div>
-                <p class="card-section-title">Observation:</p>
-                <p class="card-text">"I felt truly heard and understood today because you gave me your undivided attention and paraphrased what I said. Thank you for being so present."</p>
-            </div>
-            <p class="card-impact">Impact: "This makes me feel valued and connected to you."</p>
-        </div>
-
-        <div class="card">
-            <h3 class="card-title">Empathetic Connection</h3>
-            <div>
-                <p class="card-section-title">Observation:</p>
-                <p class="card-text">"I felt understood when you acknowledged and validated my feelings about ............... . Your empathy makes me feel safe to share anything with you."</p>
-            </div>
-            <p class="card-impact">Impact: "Knowing my emotions are valid helps me trust you with my vulnerability."</p>
-        </div>
-
-        <div class="card">
-            <h3 class="card-title">Taking Responsibility</h3>
-            <div>
-                <p class="card-section-title">Observation:</p>
-                <p class="card-text">"I noticed you immediately taking full responsibility for ............... . This genuinely rebuilds my trust in your accountability."</p>
-            </div>
-            <p class="card-impact">Impact: "Your willingness to own your actions makes me feel respected and secure."</p>
-        </div>
-
-        <div class="card">
-            <h3 class="card-title">Calm & Respectful</h3>
-            <div>
-                <p class="card-section-title">Observation:</p>
-                <p class="card-text">"I observed you managing your stress calmly today, and our interaction remained respectful, even under pressure. Thank you for your emotional maturity."</p>
-            </div>
-            <p class="card-impact">Impact: "This consistency helps me feel safe and respected in our relationship."</p>
-        </div>
-
-        <div class="card">
-            <h3 class="card-title">Proactive Home Support</h3>
-            <div>
-                <p class="card-section-title">Observation:</p>
-                <p class="card-text">"I noticed you proactively ............... . This lightens my burden and makes me feel so supported and cared for."</p>
-            </div>
-            <p class="card-impact">Impact: "Your initiative in our shared space means the world to me."</p>
-        </div>
-
-        <div class="card">
-            <h3 class="card-title">Reliable Partner</h3>
-            <div>
-                <p class="card-section-title">Observation:</p>
-                <p class="card-text">"I observed you consistently following through on your commitments this week, without me needing to remind you. Your reliability truly means a lot to me."</p>
-            </div>
-            <p class="card-impact">Impact: "This consistency builds my trust that you will do what you say."</p>
-        </div>
-
     </div>
+    
+    <button onclick="window.print()" class="print-button">
+        <i class="fas fa-print mr-2"></i>Save as PDF
+    </button>
 
 </body>
 </html>
